@@ -143,11 +143,16 @@
     text-decoration:none;
     border-radius:999px;
     margin-top:15px;
-    background:transparent;
+    background:var(--paper);
+    color:var(--text);
     cursor:pointer;
     font:inherit;
+    min-height:48px;
   }
-  .btn:hover{background:var(--text);color:white}
+  .btn:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+  @media (hover:hover) and (pointer:fine){
+    .btn:hover{background:var(--text);color:white}
+  }
   form{
     max-width:620px;
     margin:30px auto 0;
@@ -186,7 +191,7 @@
   }
   footer{
     text-align:center;
-    padding:42px 20px;
+    padding:42px 20px calc(42px + env(safe-area-inset-bottom));
     color:var(--muted);
     border-top:1px solid var(--line);
   }
@@ -194,6 +199,14 @@
     .grid{grid-template-columns:1fr}
     .gift-grid{grid-template-columns:1fr}
     section{padding:56px 18px}
+    .card,
+    .gift-card,
+    form{text-align:center}
+    form label{text-align:center}
+    form input,
+    form select{text-align:center}
+    .radio-row{justify-content:center}
+    .btn{display:block;width:max-content;margin:15px auto 0}
     .hero{
       min-height:clamp(500px, 78svh, 680px);
       padding:18px 12px 20px;
