@@ -21,6 +21,7 @@
     color:var(--text);
     background:var(--bg);
     line-height:1.6;
+    -webkit-text-size-adjust:100%;
   }
   a{color:inherit}
   .hero{
@@ -192,7 +193,25 @@
     .grid{grid-template-columns:1fr}
     .gift-grid{grid-template-columns:1fr}
     section{padding:56px 18px}
-    .hero{min-height:78vh}
+    .hero{
+      min-height:78vh;
+      margin-top:18px;
+      padding:18px 0 0;
+    }
+    .hero-card{padding:18px 16px}
+    .map-frame{height:300px}
+    form{padding:22px 18px}
+  }
+  @media (max-width:420px){
+    section{padding:48px 14px}
+    h2{font-size:clamp(1.8rem,9vw,2.3rem)}
+    .hero-names{font-size:clamp(1.15rem,5vw,1.5rem)}
+    .map-frame{height:260px}
+    .countdown{gap:.4rem}
+    .countdown-label,
+    .countdown-value{font-size:1.45rem}
+    .card,
+    .gift-card{padding:22px 18px}
   }
 </style>
 </head>
