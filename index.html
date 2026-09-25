@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Invitación de boda de Yanine y Agustín · 19 de diciembre de 2026">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<title>Yanine & Agustín</title>
+<style>
+  :root{
+    --bg:#f7f2ec;
+    --paper:#fffdf9;
+    --text:#2f2a26;
+    --muted:#756d66;
+    --accent:#7f8b69;
+    --line:#ded6cd;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family: Georgia, "Times New Roman", serif;
+    color:var(--text);
+    background:var(--bg);
+    line-height:1.6;
+    -webkit-text-size-adjust:100%;
+    overflow-x:hidden;
+  }
+  a{color:inherit}
+  .hero{
+    min-height:clamp(500px, 76svh, 760px);
+    margin-top:0;
+    background:
+      linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.25)),
+      url("hero-yanine-agustin.jpg")
+      center 38%/cover no-repeat;
+    background-color:#efe9e1;
+    display:grid;
+    justify-items:center;
+    align-items:end;
+    text-align:center;
+    padding:24px 16px 28px;
+    color:white;
+  }
+  .hero-card{
+    width:min(100%, 760px);
+    padding:24px 30px;
+    background:rgba(0,0,0,.12);
+    backdrop-filter:blur(2px);
+    border:1px solid rgba(255,255,255,.4);
+    transform:none;
+  }
+  .eyebrow{letter-spacing:.18em;text-transform:uppercase;font-size:.78rem}
+  h1{font-size:clamp(1.35rem,5.4vw,2.7rem);line-height:1.1;margin:.15em 0;font-weight:400;overflow-wrap:anywhere}
+  .hero-names span{display:block}
+  .hero-card > .eyebrow + .hero-names{margin-top:.45em}
+  .hero-names .ampersand{margin:.12em 0}
+  .date{font-size:clamp(1rem,3vw,1.35rem)}
+  section{padding:76px 22px}
+  .wrap{max-width:900px;margin:auto}
+  .center{text-align:center}
+  .map-frame{
+    display:block;
+    width:min(100%, 640px);
+    height:360px;
+    margin:2rem auto 0;
+    border:1px solid var(--line);
+    border-radius:18px;
+  }
+  h2{font-size:clamp(2rem,5vw,3.4rem);font-weight:400;margin:.1em 0 .5em}
+  h3{font-weight:400;font-size:1.35rem;margin-bottom:.25em}
+  .muted{color:var(--muted)}
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+    margin-top:34px;
+  }
+  .card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    padding:28px;
+    border-radius:18px;
+  }
+  .countdown{
+    margin-top:1.2rem;
+    padding-top:1rem;
+    border-top:1px solid var(--line);
+    text-align:center;
+    display:flex;
+    align-items:baseline;
+    justify-content:center;
+    gap:.55rem;
+  }
+  .countdown-label{
+    margin:0;
+    font-size:1.7rem;
+    font-weight:400;
+  }
+  .countdown-value{
+    margin:0;
+    font-size:1.7rem;
+    font-family:inherit;
+  }
+  .countdown-card{
+    width:100%;
+    max-width:none;
+    margin:22px auto 0;
+  }
+  .countdown-card .countdown{
+    margin:0;
+    padding:0;
+    border:0;
+  }
+  .story{font-size:1.2rem;max-width:760px;margin:auto}
+  .gift-intro{font-size:1.15rem;max-width:620px;margin:0 auto 30px}
+  .gift-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
+    max-width:720px;
+    margin:auto;
+    text-align:left;
+  }
+  .gift-card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:28px;
+  }
+  .gift-card h3{margin-top:0}
+  .account-number{
+    margin:18px 0;
+    font-family:Arial,sans-serif;
+    font-size:1.55rem;
+    letter-spacing:.08em;
+  }
+  .account-holder{margin:0;color:var(--muted)}
+  .btn{
+    display:inline-block;
+    border:1px solid var(--text);
+    padding:13px 22px;
+    text-decoration:none;
+    border-radius:999px;
+    margin-top:15px;
+    background:transparent;
+    cursor:pointer;
+    font:inherit;
+  }
+  .btn:hover{background:var(--text);color:white}
+  form{
+    max-width:620px;
+    margin:30px auto 0;
+    text-align:left;
+    background:var(--paper);
+    border:1px solid var(--line);
+    padding:28px;
+    border-radius:18px;
+  }
+  label{display:block;margin:14px 0 6px}
+  input, select{
+    width:100%;
+    padding:12px 13px;
+    border:1px solid #cfc6bd;
+    border-radius:10px;
+    background:white;
+    font:inherit;
+  }
+  .radio-row{display:flex;gap:18px;flex-wrap:wrap;margin:12px 0}
+  .radio-row label{display:flex;align-items:center;gap:8px;margin:0}
+  .radio-row input{width:auto}
+  .note{
+    margin-top:14px;
+    padding:12px 14px;
+    background:#f1ece6;
+    border-radius:10px;
+    color:#625b55;
+    font-family:Arial,sans-serif;
+    font-size:.92rem;
+  }
+  .code{
+    font-family:Arial,sans-serif;
+    font-size:1.6rem;
+    letter-spacing:.2em;
+    margin:14px 0;
+  }
+  footer{
+    text-align:center;
+    padding:42px 20px;
+    color:var(--muted);
+    border-top:1px solid var(--line);
+  }
+  @media (max-width:720px){
+    .grid{grid-template-columns:1fr}
+    .gift-grid{grid-template-columns:1fr}
+    section{padding:56px 18px}
+    .hero{
+      min-height:clamp(500px, 78svh, 680px);
+      padding:18px 12px 20px;
+      background-position:center 34%;
+    }
+    .hero-card{padding:18px 16px}
+    .map-frame{height:300px}
+    form{padding:22px 18px}
+  }
+  @media (max-width:420px){
+    section{padding:48px 14px}
+    h2{font-size:clamp(1.8rem,9vw,2.3rem)}
+    .hero-names{font-size:clamp(1.15rem,5vw,1.5rem)}
+    .map-frame{height:260px}
+    .countdown{gap:.4rem}
+    .countdown-label,
+    .countdown-value{font-size:1.45rem}
+    .card,
+    .gift-card{padding:22px 18px}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-card">
+    <div class="eyebrow">Nos casamos</div>
+    <h1 class="hero-names"><span>Yanine Sayanes Muraña</span><span class="ampersand">&amp;</span><span>Agustín González Dudley</span></h1>
+  </div>
+</header>
+
+<section>
+  <div class="wrap center">
+    <div class="eyebrow muted">Reserva la fecha</div>
+    <h2>19 de diciembre de 2026</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>La fecha</h3>
+        <p>Sábado, 19 de diciembre de 2026</p>
+      </div>
+      <div class="card">
+        <h3>La hora</h3>
+        <p>Los esperamos a las 20:30</p>
+      </div>
+      <div class="card">
+        <h3>El lugar</h3>
+        <p>Chacra &quot;Mahatma Campestre&quot;<br>Tacuarembó</p>
+      </div>
+    </div>
+    <div class="card countdown-card" aria-live="polite">
+      <div class="countdown">
+        <div class="countdown-label">Faltan</div>
+        <div id="countdown-value" class="countdown-value">Calculando…</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:#efe9e1">
+  <div class="wrap center">
+    <div class="eyebrow muted">Esperamos que puedan acompañarnos</div>
+    <h2>Confirmar asistencia</h2>
+
+    <form id="rsvp-form" action="https://docs.google.com/forms/d/e/1FAIpQLSdmMj44HQ4rVM0l5ddZ5KL_nB1drZ0Hl6mVhKKIyi67z8Poqg/formResponse" method="post" target="rsvp-target" onsubmit="document.getElementById('msg').hidden=false;">
+      <label for="nombre">Nombre y apellido</label>
+      <input id="nombre" name="entry.1075267942" type="text" autocomplete="name" placeholder="Tu nombre y apellido" required maxlength="120">
+
+      <label>¿Podrás acompañarnos?</label>
+      <div class="radio-row">
+        <label><input type="radio" name="entry.160402842" value="Sí" required> Sí</label>
+        <label><input type="radio" name="entry.160402842" value="No"> No</label>
+      </div>
+
+      <button class="btn" type="submit">Confirmar asistencia</button>
+      <div id="msg" class="note" hidden role="status">¡Gracias por confirmar! Registramos tu respuesta.</div>
+    </form>
+    <iframe name="rsvp-target" title="Envío de confirmación" hidden></iframe>
+  </div>
+</section>
+
+<section>
+  <div class="wrap center">
+    <div class="eyebrow muted">Regalos</div>
+    <h2>Tu compañía es lo más importante</h2>
+    <p class="gift-intro">Si desean tener un gesto con nosotros, pueden hacerlo mediante cualquiera de las siguientes cuentas.</p>
+    <div class="gift-grid">
+      <article class="gift-card">
+        <h3>Caja de ahorro $</h3>
+        <p class="account-number">1499970</p>
+        <p class="account-holder">Agustín González Dudley<br>Banco Itaú</p>
+      </article>
+      <article class="gift-card">
+        <h3>Caja de ahorro U$S</h3>
+        <p class="account-number">2938244</p>
+        <p class="account-holder">Agustín González Dudley<br>Banco Itaú</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section style="background:#efe9e1">
+  <div class="wrap center">
+    <div class="eyebrow muted">Cómo llegar</div>
+    <h2>El lugar de la celebración</h2>
+    <p>Chacra &quot;Mahatma Campestre&quot; · Tacuarembó</p>
+    <iframe class="map-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3393.3691099469643!2d-56.08228782511672!3d-31.73312451163336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a853d28ae59891%3A0xf99486efccf19f25!2sChacra%20Mahatma%20Campestre!5e0!3m2!1ses-419!2suy!4v1790307735722!5m2!1ses-419!2suy" title="Ubicación de Chacra Mahatma Campestre" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+  </div>
+</section>
+
+<footer>
+  <strong>Yanine & Agustín</strong><br>
+  Sábado, 19 de diciembre de 2026
+</footer>
+
+<script>
+  (() => {
+    const celebration = new Date('2026-12-19T20:30:00-03:00');
+    const value = document.getElementById('countdown-value');
+    const day = 24 * 60 * 60 * 1000;
+
+    function updateCountdown() {
+      const remaining = celebration - new Date();
+
+      if (remaining <= 0) {
+        value.textContent = '¡Hoy es el día!';
+        return;
+      }
+
+      if (remaining > day) {
+        value.textContent = `${Math.floor(remaining / day)} días`;
+        return;
+      }
+
+      const hours = Math.floor(remaining / (60 * 60 * 1000));
+      const minutes = Math.floor((remaining % (60 * 60 * 1000)) / (60 * 1000));
+      value.textContent = `${hours} h ${String(minutes).padStart(2, '0')} min`;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  })();
+</script>
+</body>
+</html>
