@@ -80,6 +80,36 @@
     padding:28px;
     border-radius:18px;
   }
+  .countdown{
+    margin-top:1.2rem;
+    padding-top:1rem;
+    border-top:1px solid var(--line);
+    text-align:center;
+    display:flex;
+    align-items:baseline;
+    justify-content:center;
+    gap:.55rem;
+  }
+  .countdown-label{
+    margin:0;
+    font-size:1.7rem;
+    font-weight:400;
+  }
+  .countdown-value{
+    margin:0;
+    font-size:1.7rem;
+    font-family:inherit;
+  }
+  .countdown-card{
+    width:100%;
+    max-width:none;
+    margin:22px auto 0;
+  }
+  .countdown-card .countdown{
+    margin:0;
+    padding:0;
+    border:0;
+  }
   .story{font-size:1.2rem;max-width:760px;margin:auto}
   .gift-intro{font-size:1.15rem;max-width:620px;margin:0 auto 30px}
   .gift-grid{
@@ -193,6 +223,12 @@
         <p>Chacra &quot;Mahatma Campestre&quot;<br>Tacuarembó</p>
       </div>
     </div>
+    <div class="card countdown-card" aria-live="polite">
+      <div class="countdown">
+        <div class="countdown-label">Faltan</div>
+        <div id="countdown-value" class="countdown-value">Calculando…</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -252,5 +288,33 @@
   Sábado, 19 de diciembre de 2026
 </footer>
 
+<script>
+  (() => {
+    const celebration = new Date('2026-12-19T20:30:00-03:00');
+    const value = document.getElementById('countdown-value');
+    const day = 24 * 60 * 60 * 1000;
+
+    function updateCountdown() {
+      const remaining = celebration - new Date();
+
+      if (remaining <= 0) {
+        value.textContent = '¡Hoy es el día!';
+        return;
+      }
+
+      if (remaining > day) {
+        value.textContent = `${Math.floor(remaining / day)} días`;
+        return;
+      }
+
+      const hours = Math.floor(remaining / (60 * 60 * 1000));
+      const minutes = Math.floor((remaining % (60 * 60 * 1000)) / (60 * 1000));
+      value.textContent = `${hours} h ${String(minutes).padStart(2, '0')} min`;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  })();
+</script>
 </body>
 </html>
